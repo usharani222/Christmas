@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+MX+Guides&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            /* font-family: "Po", serif; */
+            font-weight: 400;
+            font-style: normal;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 100px auto 0;
+            background-color: #000;
+            color: #fff;
+        }
+        .snowfall{
+            position: absolute;
+            z-index: -1;
+            inset:0;
+            overflow: hidden;
+            /* background: linear-gradient(blue,lightblue 85%); */
+            background:url('./xmas.jpg') no-repeat center center / cover;
+        }
+        .snowflake{
+            --small:3px;
+            --medium:7px;
+            width: var(--small);
+            height: var(--small);
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: snow 6s linear infinite,
+                        wind 10s ease-in-out infinite;
+            top: -10%;
+            left: 10%;
+        }
+        .snowflake:nth-child(2n+3){
+            /* 3,5,7,... */
+            width: var(--medium);
+            height: var(--medium);
+        }
+        .snowflake:nth-child(1) { left: 25%; animation-delay: 0s; }
+        .snowflake:nth-child(2) { left: 85%; animation-delay: 0.5s; }
+        .snowflake:nth-child(3) { left: 30%; animation-delay: 1s; }
+        .snowflake:nth-child(4) { left: 65%; animation-delay: 1.5s; }
+        .snowflake:nth-child(5) { left: 25%; animation-delay: 2s; }
+        .snowflake:nth-child(6) { left: 95%; animation-delay: 2.5s; }
+        .snowflake:nth-child(7) { left: 55%; animation-delay: 3s; }
+        .snowflake:nth-child(8) { left: 10%; animation-delay: 3.5s; }
+        .snowflake:nth-child(9) { left: 70%; animation-delay: 4s; }
+        .snowflake:nth-child(10) { left: 20%; animation-delay: 4.5s; }
+
+        @keyframes snow{
+            100%{
+                top: 100%;
+            }
+        }
+        @keyframes wind{
+            50%{
+                transform: translateX(120px);
+            }
+        }
+        @media (max-width: 768px) {
+            .snowfall{
+                background: url('./mblexmas.jpg') no-repeat center center /cover;
+            }
+            h1 {
+                font-size: 40px;
+                letter-spacing: 2px;
+            }
+
+            .snowflake {
+                --small: 2px;
+                --medium: 5px;
+            }
+
+            @keyframes wind {
+                50% {
+                    transform: translateX(80px);
+                }
+            }
+        }
+
+        @media (max-width: 480px) {
+            body{
+                background: url('./xmasmble.jpg') no-repeat center center /cover;
+            }
+            h1 {
+                font-size: 30px;
+                letter-spacing: 1.5px;
+            }
+
+            .snowflake {
+                --small: 1.5px;
+                --medium: 4px;
+            }
+
+            @keyframes wind {
+                50% {
+                    transform: translateX(50px);
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Happy Christmas!
+    </h1>
+    <div class="snowfall">
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+    </div>
+</body>
+</html>
