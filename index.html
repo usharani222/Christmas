@@ -6,7 +6,7 @@
     <title>Snow</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playwrite+MX+Guides&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -14,15 +14,28 @@
             margin: 0;
         }
         body{
-            /* font-family: "Po", serif; */
-            font-weight: 400;
-            font-style: normal;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 100px auto 0;
-            background-color: #000;
-            color: #fff;
+            font-family: "Poppins", serif;
+        }
+        body .title{
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            color: #000;
+            position: absolute;
+            font-size: 60px;
+            color: transparent;
+            /* -webkit-text-stroke: 1px #fff; */
+            background-image: linear-gradient(#fff,#fff);
+            background-repeat: no-repeat;
+            -webkit-background-clip: text;  /*only inside text*/
+            background-position: -600px;
+            animation: backcolor 5s linear infinite alternate;
+        }
+        @keyframes backcolor {
+            100%{
+                background-position:0 ;
+            }
+            
         }
         .snowfall{
             position: absolute;
@@ -72,14 +85,15 @@
             }
         }
         @media (max-width: 768px) {
+            body .title{
+                left: 50%;
+                top: 20%;
+                font-size: 60px;
+            }
+            
             .snowfall{
                 background: url('./mblexmas.jpg') no-repeat center center /cover;
             }
-            h1 {
-                font-size: 40px;
-                letter-spacing: 2px;
-            }
-
             .snowflake {
                 --small: 4px;
                 --medium: 9px;
@@ -111,11 +125,11 @@
                     transform: translateX(50px);
                 }
             }
-        }
+        } 
     </style>
 </head>
 <body>
-    <h1>
+    <h1 class="title">
         Happy Christmas!
     </h1>
     <div class="snowfall">
